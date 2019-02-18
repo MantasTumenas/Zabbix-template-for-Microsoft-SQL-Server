@@ -1,0 +1,2602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>3.4</version>
+    <date>2019-02-18T13:14:11Z</date>
+    <groups>
+        <group>
+            <name>Templates::Win_SQL</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template Microsoft SQL Server DE L3</template>
+            <name>Template Microsoft SQL Server DE L3</name>
+            <description>Zabbix template for Microsoft SQL Server.&#13;
+&#13;
+Tested on Microsoft SQL Server 2012, 2014 and 2016. It may work with earlier versions, but some items (with missing performance counters) may be unsupported.&#13;
+Tested on Zabbix 3.4.0. It may work with earlier versions, but some items (for example service.info[service,&lt;param&gt;]) may be unsupported.&#13;
+&#13;
+For Low Level Discovery to work additional scripts must be configured.&#13;
+&#13;
+Mantas Tumenas.&#13;
+mantas.tumenas@gmail.com</description>
+            <groups>
+                <group>
+                    <name>Templates::Win_SQL</name>
+                </group>
+            </groups>
+            <applications/>
+            <items/>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>SQL Server Instances Discovery</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>level1.instances.mssql.discovery</key>
+                    <delay>4h</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>365d</lifetime>
+                    <description>SQL Server instances discovery with additional scripts lets discover Microsoft SQL Server instances.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Forwarded Records/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Forwarded Records/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>R/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of records per second fetched through forwarded record pointers.&#13;
+&#13;
+Identifies use of a pointer which has been created when variable length columns have caused a row to move to a new page in a heap.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Data Access</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Full Scans/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Full Scans/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>S/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of unrestricted full scans. These can either be base table or full index scans.&#13;
+&#13;
+Monitors the number of full scans on tables or indexes. Ignore unless high CPU coincides with high scan rates. High scan rates may be caused by missing indexes, very small tables, or requests for too many records.&#13;
+&#13;
+Threshold: a sudden increase in this value may indicate a statistics threshold has been reached, resulting in an index no longer being used.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Data Access</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Index Searches/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Index Searches/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>S/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of index searches. Index searches are used to start range scans, single index record fetches, and to reposition within an index.&#13;
+&#13;
+The threshold recommendation is strictly for OLTP workloads.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Data Access</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Page Splits/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Page Splits/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>S/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of page splits per second that occur as a result of overflowing index pages.&#13;
+&#13;
+To avoid page splits, review table and index design to reduce non-sequential inserts or implement fillfactor and pad_index to leave more empty space per page. NOTE: A high value for this counter is not bad in situations where many new pages are being created, since it includes new page allocations.&#13;
+&#13;
+Threshold: should be as low as possible.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Data Access</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Table Lock Escalations/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Table Lock Escalations/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>E/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>The number of times locks on a table were escalated (from page- or row-level to table-level).&#13;
+&#13;
+Threshold: this number should, generally, be low. Frequent or even occasional spiking in this value may indicate poorly coded transactions.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Users And Locks</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Workfiles Created/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Workfiles Created/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>C/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of work files created per second. For example, work files could be used to store temporary results for hash joins and hash aggregates.&#13;
+&#13;
+Threshold: high values can indicate thrash in tempdb and poorly coded queries.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Data Access</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Worktables Created/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Worktables Created/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>C/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of work tables created per second. For example, work tables could be used to store temporary results for query spool, LOB variables, XML variables, and cursors.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Data Access</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Checkpoint Pages/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Buffer Manager\Checkpoint Pages/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>P/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of pages flushed by checkpoint or other operations that require all dirty pages to be flushed.&#13;
+&#13;
+Checkpoint frequency is influenced by the recovery interval setting in sp_configure.&#13;
+&#13;
+Threshold: high values for this counter may indicate insufficient memory or that the recovery interval is too high.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Buffer Manager And Memory</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Database Pages</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Buffer Manager\Database Pages&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Pages</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of pages in the buffer pool with database content.&#13;
+&#13;
+As opposed to other usages for memory such as free pages, procedure cache, etc.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Memory Usage</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Page Lookups/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Buffer Manager\Page Lookups/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>L/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of requests to find a page in the buffer pool.&#13;
+&#13;
+Threshold: when the ratio of batch requests to page lookups crests 100, you may have inefficient execution plans or too many adhoc queries.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Buffer Manager And Memory</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Active Cursors _Total</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Cursor Manager by Type(_Total)\Active Cursors&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of active cursors.&#13;
+&#13;
+Threshold: a heavy use of server cursors can result in performance issues.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Workload</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: User Connections</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:General Statistics\User Connections&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Conn.</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of users connected to the system.&#13;
+&#13;
+Threshold: this counter should roughly track with “Batch Requests/Sec”. They should generally rise and fall together. For example, blocking problems could be revealed by rising user connections, lock waits and lock wait time coupled with declining batch requests/sec.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Users And Locks</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Average Latch Wait Time (ms)</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Latches\Average Latch Wait Time (ms)&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>ms</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Average latch wait time (in milliseconds) for latch requests that had to wait.&#13;
+&#13;
+Threshold: this value should generally correlate to “Latch Waits/sec” and move up or down with it accordingly.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Users And Locks</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Latch Waits/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Latches\Latch Waits/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>W/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of latch requests that could not be granted immediately and had to wait before being granted.&#13;
+&#13;
+Latches are lightweight means of holding a very transient server resource, such as an address in memory.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Users And Locks</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Total Latch Wait Time (ms)</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Latches\Total Latch Wait Time (ms)&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>ms</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Total latch wait time (in milliseconds) for latch requests that had to wait in the last second.&#13;
+&#13;
+Threshold: this value should stay stable compared to the number of latch waits per second.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Users And Locks</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Average Lock Wait Time (ms) (_Total)</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Locks(_Total)\Average Wait Time (ms)&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>ms</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>The average amount of wait time (in milliseconds) for each lock request that resulted in a wait.&#13;
+&#13;
+Threshold: an average wait time longer than 500ms may indicate excessive blocking. This value should generally correlate to “Lock Waits/sec” and move up or down with it accordingly.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Users And Locks</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Lock Requests/sec (_Total)</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Locks(_Total)\Lock Requests/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>R/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of new locks and lock conversions requested from the lock manager.&#13;
+&#13;
+Threshold: this metric’s value should generally correspond to “Batch Requests/sec”. Values &gt; 1000 may indicate queries are accessing very large numbers of rows and may benefit from tuning.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Users And Locks</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Lock Timeouts/sec (_Total)</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Locks(_Total)\Lock Timeouts/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>T/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of lock requests that timed out. This includes requests for NOWAIT locks.&#13;
+&#13;
+Threshold: a value greater than zero might indicate that user queries are not completing. The lower this value is, the better.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Users And Locks</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Lock Waits/sec (_Total)</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Locks(_Total)\Lock Waits/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>W/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of lock requests that could not be satisfied immediately and required the caller to wait before being granted the lock.&#13;
+&#13;
+Threshold: values greater than zero indicate at least some blocking is occurring, while a value of zero can quickly eliminate blocking as a potential root-cause problem. As with “Lock Wait Time”, lock waits are not recorded by Performance Monitor until after the lock event completes.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Users And Locks</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Lock Wait Time (ms) (_Total)</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Locks(_Total)\Lock Wait Time (ms)&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>ms</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Total wait time (in milliseconds) for locks in the last second.&#13;
+&#13;
+Threshold: because SQL Server records a lock at the end of a locking event, remember that an application with huge transactions may have inflated lock wait times while still performing as expected. For example, an application that issues multi-million record updates might have very long lock wait times while performing exactly as it was designed.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Users And Locks</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Number of Deadlocks/sec (_Total)</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Locks(_Total)\Number of Deadlocks/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>D/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of lock requests that resulted in a deadlock.&#13;
+&#13;
+Threshold: since only a COMMIT, ROLLBACK, or deadlock can terminate a transaction (excluding failures or errors), this is an important value to track. Excessive deadlocking indicates a table or index design error or bad application design.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Users And Locks</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Granted Workspace Memory (KB)</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Memory Manager\Granted Workspace Memory (KB)&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>B</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Total amount of memory granted to executing processes. This memory is used for hash, sort and create index operations.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>1</type>
+                                    <params>1024</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Memory Manager</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Maximum Workspace Memory (KB)</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Memory Manager\Maximum Workspace Memory (KB)&quot;]</key>
+                            <delay>1h</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>B</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Total amount of memory available for grants to executing processes. This memory is used primarily for hash, sort and create index operations.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>1</type>
+                                    <params>1024</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Memory Manager</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Memory Grants Outstanding</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Memory Manager\Memory Grants Outstanding&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>O/sec</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Current number of processes that have successfully acquired a workspace memory grant</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Memory Manager</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Memory Grants Pending</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Memory Manager\Memory Grants Pending&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>P /sec</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Current number of processes waiting for a workspace memory grant.&#13;
+&#13;
+Threshold: numbers higher than 0 indicate a lack of memory.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Memory Manager</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Cache Hit Ratio (_Total)</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Plan Cache(_Total)\Cache Hit Ratio&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>%</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Ratio between cache hits and lookups.&#13;
+&#13;
+This deals with the procedure cache. This indicates how many query plans exist in the cache vs how many were compiled at run time.&#13;
+&#13;
+Threshold: this number starts very low after the system restart and should consistently stay close to 95-100%.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Plan Cache</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Cache Pages</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Plan Cache(_Total)\Cache Pages&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of 8k pages used by cache objects.&#13;
+&#13;
+This deals with the procedure cache and tells how many 8 KB pages are used for the procedure cache.&#13;
+&#13;
+Threshold: Low value of combination Cache Hit Ratio coupled with high number of Cache Pages, tells that the system might be suffering from dynamic sql issues.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Plan Cache</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Errors/sec Info Errors</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:SQL Errors(Info Errors)\Errors/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>E/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of info errors.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Workload</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Errors/sec Kill Connection Errors</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:SQL Errors(Kill Connection Errors)\Errors/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>E/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of errors per second which cause SQL Server to kill a user connection, respectively.&#13;
+&#13;
+Threshold: since these are severe errors, they should occur very infrequently.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Workload</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Errors/sec User Errors</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:SQL Errors(User Errors)\Errors/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>E/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of user errors.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Workload</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Auto-Param Attempts/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\Auto-Param Attempts/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>A/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of auto-parameterization attempts per second.&#13;
+&#13;
+Total should be the sum of the failed, safe, and unsafe auto-parameterizations. Auto-parameterization occurs when an instance of SQL Server tries to parameterize a Transact-SQL request by replacing some literals with parameters so that reuse of the resulting cached execution plan across multiple similar-looking requests is possible. Note that auto-parameterizations are also known as simple parameterizations in newer versions of SQL Server. This counter does not include forced parameterizations.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Statistics</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Batch Requests/Sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\Batch Requests/Sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>R/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of SQL batch requests received by server.&#13;
+&#13;
+This counter is highly dependent on the hardware and quality of code running on the server. The more powerful the hardware, the higher this number can be, even on poorly coded applications. A value of 1000 batch requests/sec is easily attainable though a typical 100Mbs NIC can only handle about 3000 batch requests/sec. Many other counter thresholds depend upon batch requests/sec while, in some cases, a low (or high) number does not point to poor processing power. You should frequently use this counter in combination with other counters, such as processor utilization or user connections.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Workload</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Failed Auto-Params/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\Failed Auto-Params/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>P/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of failed auto-parameterizations.&#13;
+&#13;
+Threshold: this should be small. Note that auto-parameterizations are also known as simple parameterizations in later versions of SQL Server.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Statistics</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Safe Auto-Params/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\Safe Auto-Params/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>P/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of safe auto-parameterizations.&#13;
+&#13;
+Safe refers to a determination that a cached execution plan can be shared between different similar-looking Transact-SQL statements. SQL Server makes many auto-parameterization attempts some of which turn out to be safe and others fail. Note that auto-parameterizations are also known as simple parameterizations in later versions of SQL Server. This does not include forced parameterizations.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Statistics</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: SQL Attention Rate/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\SQL Attention Rate&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>A/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of attentions per second.&#13;
+&#13;
+An attention is a request by the client to end the currently running request or the query timeouts occurring per second.&#13;
+&#13;
+Threshold: this number should be as low as possible. A high sustained number indicates frequent query timeout or end-user cancellation of queries.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Workload</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: SQL Compilations/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\SQL Compilations/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>C/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of SQL compilations.&#13;
+&#13;
+Threshold: the lower this value is the better. High values often indicate excessive adhoc querying and should be as low as possible. If excessive adhoc querying is happening, try rewriting the queries as procedures or invoke the queries using sp_executeSQL. When rewriting isn’t possible, consider using a plan guide or setting the database to parameterization forced mode.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Workload</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: SQL Re-Compilations/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\SQL Re-Compilations/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>R-C/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of SQL re-compiles.&#13;
+&#13;
+Threshold: this number should be at or near zero, since recompiles can cause deadlocks and exclusive compile locks. This counter’s value should follow in proportion to “Batch Requests/sec” and “SQL Compilations/sec”. This needs to be nil in your system as much as possible.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Workload</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Unsafe Auto-Params/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\Unsafe Auto-Params/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>P/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of unsafe auto-parameterizations.&#13;
+&#13;
+For example, the query has some characteristics that prevent the cached plan from being shared. These are designated as unsafe. This does not count the number of forced parameterizations.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Statistics</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Longest Transaction RunningTime</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Transactions\Longest Transaction Running Time&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>The longest running time of any transaction in seconds.&#13;
+&#13;
+This counter only shows activity when the database is under read committed snapshot isolation level. It does not log any activity if the database is in any other isolation level.&#13;
+&#13;
+Threshold: when blocking is high, check this counter to see if transactions are open for long periods of time.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Users And Locks</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Locks(_Total)\Average Wait Time (ms)&quot;].last(,0)}&gt;500</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Avg Wait Time (ms) {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-locks-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>The average amount of wait time (in milliseconds) for each lock request that resulted in a wait.&#13;
+&#13;
+Threshold: an average wait time longer than 500ms may indicate excessive blocking. This value should generally correlate to “Lock Waits/sec” and move up or down with it accordingly.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:SQL Errors(Info Errors)\Errors/sec&quot;].last(,0)}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Errors/sec Info Errors {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-sql-errors-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of info errors.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:SQL Errors(Kill Connection Errors)\Errors/sec&quot;].last(,0)}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Errors/sec Kill Connection Errors {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-sql-errors-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of errors per second which cause SQL Server to kill a user connection, respectively.&#13;
+&#13;
+Threshold: since these are severe errors, they should occur very infrequently.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:SQL Errors(User Errors)\Errors/sec&quot;].last(0)}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Errors/sec User Errors {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-sql-errors-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of user errors.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>({Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Forwarded Records/sec&quot;].avg(604800,0)} / {Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\Batch Requests/Sec&quot;].avg(604800,0)})&gt;0.1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Forwarded Records/sec / Batch Records/sec avg value &gt; 10% in the last 7 days</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Identifies use of a pointer which has been created when variable length columns have caused a row to move to a new page in a heap.&#13;
+&#13;
+Threshold: &lt; 10 Forwarded Records/sec per 100 Batch Requests/sec.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>({Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Full Scans/sec&quot;].avg(604800,0)} / {Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Index Searches/sec&quot;].avg(604800,0)})&gt;0.001</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Full Scans/sec / Index Searches/sec {ITEM.LASTVALUE} %</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Threshold: &lt; 1 Full Scan/sec per 1000 Index Searches/sec.&#13;
+&#13;
+The threshold recommendation is strictly for OLTP workloads.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Locks(_Total)\Lock Requests/sec&quot;].last(,0)}&gt;1000</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Lock Requests/sec {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-locks-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of new locks and lock conversions requested from the lock manager.&#13;
+&#13;
+Threshold: this metric’s value should generally correspond to “Batch Requests/sec”. Values &gt; 1000 may indicate queries are accessing very large numbers of rows and may benefit from tuning.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Locks(_Total)\Lock Timeouts/sec&quot;].last(,0)}&gt;1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Lock Timeouts/sec (_Total) {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-locks-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of lock requests that timed out. This includes requests for NOWAIT locks.&#13;
+&#13;
+Threshold: a value greater than zero might indicate that user queries are not completing. The lower this value is, the better.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Locks(_Total)\Lock Waits/sec&quot;].last(0)}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Lock Waits/sec {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-locks-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of lock requests that could not be satisfied immediately and required the caller to wait before being granted the lock.&#13;
+&#13;
+Threshold: values greater than zero indicate at least some blocking is occurring, while a value of zero can quickly eliminate blocking as a potential root-cause problem. As with “Lock Wait Time”, lock waits are not recorded by Performance Monitor until after the lock event completes.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Transactions\Longest Transaction Running Time&quot;].last(,0)}&gt;3600</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Longest Transaction Running Time {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-transactions-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>The longest running time of any transaction in seconds.&#13;
+&#13;
+This counter only shows activity when the database is under read committed snapshot isolation level. It does not log any activity if the database is in any other isolation level.&#13;
+&#13;
+Threshold: when blocking is high, check this counter to see if transactions are open for long periods of time.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Locks(_Total)\Number of Deadlocks/sec&quot;].last(,0)}&gt;1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Number of Deadlocks/sec (_Total) {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-locks-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of lock requests that resulted in a deadlock.&#13;
+&#13;
+Threshold: since only a COMMIT, ROLLBACK, or deadlock can terminate a transaction (excluding failures or errors), this is an important value to track. Excessive deadlocking indicates a table or index design error or bad application design.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>({Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Buffer Manager\Page Lookups/sec&quot;].avg(604800,0)} / {Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\Batch Requests/Sec&quot;].avg(604800,0)})&gt;0.85</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Page Lookups/sec / Batch Requests/sec avg value &gt; 100% in the last 7 days</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of requests to find a page in the buffer pool.&#13;
+&#13;
+Threshold: when the ratio of batch requests to page lookups crests 100, you may have inefficient execution plans or too many adhoc queries.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>({Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Page Splits/sec&quot;].avg(604800,0)} / {Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\Batch Requests/Sec&quot;].avg(604800,0)})&gt;0.2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Page Splits/sec / Batch Requests/sec avg value &gt; 20% in the last 7 days</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of page splits per second that occur as a result of overflowing index pages.&#13;
+&#13;
+To avoid page splits, review table and index design to reduce non-sequential inserts or implement fillfactor and pad_index to leave more empty space per page. NOTE: A high value for this counter is not bad in situations where many new pages are being created, since it includes new page allocations.&#13;
+&#13;
+Threshold: should be as low as possible. &lt; 20 Page Splits/sec per 100 Batch Requests/sec.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\SQL Attention Rate&quot;].last(0)}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: SQL Attention Rate/sec {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of attentions per second.&#13;
+&#13;
+An attention is a request by the client to end the currently running request or the query timeouts occurring per second.&#13;
+&#13;
+Threshold: this number should be as low as possible. A high sustained number indicates frequent query timeout or end-user cancellation of queries.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>({Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\SQL Compilations/sec&quot;].avg(604800,0)} / {Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\Batch Requests/Sec&quot;].avg(604800,0)})&gt;0.1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: SQL Compilations/sec / Batch Requests/sec avg value &gt; 10% in the last 7 days</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of times that Transact-SQL compilations occurred, per second (including recompiles). The lower this value is the better. High values often indicate excessive adhoc querying and should be as low as possible. If excessive adhoc querying is happening, try rewriting the queries as procedures or invoke the queries using sp_executeSQL. When rewriting isn’t possible, consider using a plan guide or setting the database to parameterization forced mode.&#13;
+&#13;
+Threshold: SQL Compilations/sec &lt; 10% of the number of Batch Requests/sec.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>({Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\SQL Re-Compilations/sec&quot;].avg(3600,0)} / {Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:SQL Statistics\SQL Compilations/sec&quot;].avg(3600,0)})&gt;0.1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: SQL Re-Compilations/sec / SQL Compilations/sec avg value &gt; 10% in the last 60 min</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of times, per second, that Transact-SQL objects attempted to be executed but had to be recompiled before completion. This number should be at or near zero, since recompiles can cause deadlocks and exclusive compile locks. This counter’s value should follow in proportion to “Batch Requests/sec” and “SQL Compilations/sec”. This needs to be nil in your system as much as possible.&#13;
+&#13;
+Threshold: SQL Re-Compilations/sec &lt; 10% of the number of SQL Compilations/sec</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>({Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Latches\Total Latch Wait Time (ms)&quot;].avg(900,0)} / {Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Latches\Latch Waits/sec&quot;].avg(900,0)})&gt;0.1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Total Latch Wait Time / Latch Waits/Sec avg value &gt; 10% in the last 15 min</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of latch requests that could not be granted immediately and had to wait before being granted.&#13;
+&#13;
+Latches are lightweight means of holding a very transient server resource, such as an address in memory.&#13;
+&#13;
+Threshold: Total Latch Wait Time / Latch Waits Sec &lt; 10</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Workfiles Created/sec&quot;].last(0)}&gt;20</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Workfiles Created/sec {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-access-methods-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of work files created per second. For example, work files could be used to store temporary results for hash joins and hash aggregates.&#13;
+&#13;
+Threshold: high values can indicate thrash in tempdb and poorly coded queries.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Access Methods\Worktables Created/sec&quot;].last(0)}&gt;20</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME}: Worktables Created/sec {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-access-methods-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Number of work tables created per second. For example, work tables could be used to store temporary results for query spool, LOB variables, XML variables, and cursors.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                    <jmx_endpoint/>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>SQL Server Databases Discovery</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>tier1.databases.mssql.discovery</key>
+                    <delay>4h</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>2</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>365d</lifetime>
+                    <description>SQL Server database discovery with additional scripts lets discover Microsoft SQL Server databases.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Active Transactions</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Active Transactions&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>Transactions</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of active transactions for the database.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Bytes Flushed/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Bytes Flushed/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>F/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Total number of log bytes flushed.&#13;
+&#13;
+Useful for determining trends and utilization of the transaction log</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flushes/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flushes/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>F/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of log flushes.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flush Waits/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flush Waits/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>W/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of commits per second waiting for the log flush.&#13;
+&#13;
+Effectively, the number of times per second that SQL Server must wait for pages to be written to the transaction log.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flush Wait Time</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flush Wait Time&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>ms</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Total wait time (in milliseconds) to flush the log.&#13;
+&#13;
+On an AlwaysOn secondary database, this value indicates the wait time for log records to be hardened to disk.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Growths</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Growths&quot;]</key>
+                            <delay>1h</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Total number of times the transaction log for the database has been expanded.&#13;
+&#13;
+Each time the transaction log grows, all user activity must halt until the log growth completes. Therefore, you want log growths to occur during predefined maintenance windows rather than during general working hours.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Shrinks</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Shrinks&quot;]</key>
+                            <delay>1h</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Total number of times the transaction log for the database has been shrunk.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Truncations</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Truncations&quot;]</key>
+                            <delay>1h</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of times the transaction log has been shrunk.&#13;
+&#13;
+Truncations should happen during log backups or, on databases in simple recovery mode, at checkpoint or the time period specified by recovery interval.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flush Waits/sec&quot;].last(0)}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flush Waits/sec {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description>Number of commits per second waiting for the log flush.&#13;
+&#13;
+Effectively, the number of times per second that SQL Server must wait for pages to be written to the transaction log.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flush Wait Time&quot;].last(0)}&gt;100</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flush Wait Time {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description>Total wait time (in milliseconds) to flush the log. On an AlwaysOn secondary database, this value indicates the wait time for log records to be hardened to disk.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Growths&quot;].diff(0)}&gt;1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Growths &gt; 0</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description>Total number of times the transaction log for the database has been expanded.&#13;
+&#13;
+Each time the transaction log grows, all user activity must halt until the log growth completes. Therefore, you want log growths to occur during predefined maintenance windows rather than during general working hours.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Shrinks&quot;].change(86400)}=1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Was Shrinked In The Last 24 Hours</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description>Total number of times the transaction log for the database has been shrunk.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                    <jmx_endpoint/>
+                </discovery_rule>
+            </discovery_rules>
+            <httptests/>
+            <macros/>
+            <templates/>
+            <screens/>
+        </template>
+    </templates>
+</zabbix_export>

@@ -1,4 +1,4 @@
-# Query to get a MS SQL database name.
+# Query to get database name.
 
 function get-instance-dbnames([string]$instanceName)
 {
@@ -24,10 +24,10 @@ function get-instance-dbnames([string]$instanceName)
         # Only run our queries if connection isn't null
         if ($connection -ne $null)
         {
-            # Create a MS SQL request
+            # Create a MSSQL request
             $SqlCmd = New-Object System.Data.SqlClient.SqlCommand
             # Select all the database names within this instance  
-            $SqlCmd.CommandText = "SELECT name FROM master..sysdatabases"
+            $SqlCmd.CommandText = "SET NOCOUNT ON;SELECT name FROM master..sysdatabases"
             $SqlCmd.Connection = $Connection
             $SqlAdapter = New-Object System.Data.SqlClient.SqlDataAdapter
             $SqlAdapter.SelectCommand = $SqlCmd

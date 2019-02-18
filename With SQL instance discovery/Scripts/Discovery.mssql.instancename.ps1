@@ -1,4 +1,4 @@
-# Query to get a MS SQL instance name.
+# Query to get instance name.
 
 $obj = [PSCustomObject] @{
     data = @((get-itemproperty 'HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server').InstalledInstances | % {

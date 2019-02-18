@@ -1,5 +1,4 @@
 # Query to get a MS SQL agent job name.
-
 function get-instance-jobnames([string]$instanceName)
 {
     $fullInstanceName = if ($instanceName -eq 'MSSQLSERVER') { $env:computername } else { "$env:computername\$instanceName" }
@@ -24,10 +23,10 @@ function get-instance-jobnames([string]$instanceName)
         # Only run our queries if connection isn't null
         if ($connection -ne $null)
         {
-            # Create a MS SQL request
+            # Create a MSSQL request
             $SqlCmd = New-Object System.Data.SqlClient.SqlCommand
-            # Select all the jobs names within this instance  
-            $SqlCmd.CommandText = "SELECT name FROM msdb..sysjobs"
+            # Select all the database names within this instance  
+            $SqlCmd.CommandText = "SET NOCOUNT ON;SELECT name FROM msdb..sysjobs"
             $SqlCmd.Connection = $Connection
             $SqlAdapter = New-Object System.Data.SqlClient.SqlDataAdapter
             $SqlAdapter.SelectCommand = $SqlCmd

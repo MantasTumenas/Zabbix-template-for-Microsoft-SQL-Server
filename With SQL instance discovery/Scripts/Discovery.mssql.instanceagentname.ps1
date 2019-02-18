@@ -1,4 +1,4 @@
-# Query to get a MS SQL agent name.
+# Query to get agent name.
 
 $obj = [PSCustomObject] @{
     data = @((get-itemproperty 'HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server').InstalledInstances | % {

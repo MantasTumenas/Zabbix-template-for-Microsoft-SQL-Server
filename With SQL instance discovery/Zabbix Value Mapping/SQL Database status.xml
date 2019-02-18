@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>3.4</version>
+    <date>2019-01-10T08:49:27Z</date>
+    <value_maps>
+        <value_map>
+            <name>SQL Database status</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>Online</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Restoring</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>Recovering</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>Recovery pending</newvalue>
+                </mapping>
+                <mapping>
+                    <value>4</value>
+                    <newvalue>Suspect</newvalue>
+                </mapping>
+                <mapping>
+                    <value>5</value>
+                    <newvalue>Emergency</newvalue>
+                </mapping>
+                <mapping>
+                    <value>6</value>
+                    <newvalue>Offline</newvalue>
+                </mapping>
+                <mapping>
+                    <value>7</value>
+                    <newvalue>Copying</newvalue>
+                </mapping>
+                <mapping>
+                    <value>10</value>
+                    <newvalue>Offline secondary</newvalue>
+                </mapping>
+                <mapping>
+                    <value>21</value>
+                    <newvalue>Mirrored, Secondary Synchronized</newvalue>
+                </mapping>
+                <mapping>
+                    <value>23</value>
+                    <newvalue>Mirrored, Principal, Synchronized</newvalue>
+                </mapping>
+                <mapping>
+                    <value>25</value>
+                    <newvalue>Mirrored, Secondary, Not Synchronized</newvalue>
+                </mapping>
+                <mapping>
+                    <value>26</value>
+                    <newvalue>Mirrored, Principal, Not Synchronized</newvalue>
+                </mapping>
+                <mapping>
+                    <value>31</value>
+                    <newvalue>AlwaysOn, Synchronized</newvalue>
+                </mapping>
+                <mapping>
+                    <value>35</value>
+                    <newvalue>AlwaysOn, Not Synchronized</newvalue>
+                </mapping>
+                <mapping>
+                    <value>41</value>
+                    <newvalue>Log Shipping, Restoring</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
+</zabbix_export>

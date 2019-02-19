@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2019-02-18T12:10:17Z</date>
+    <date>2019-02-19T19:05:11Z</date>
     <groups>
         <group>
             <name>Templates::Win_SQL</name>
@@ -130,7 +130,7 @@ mantas.tumenas@gmail.com</description>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url>https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-states?view=sql-server-2017</url>
-                            <status>0</status>
+                            <status>1</status>
                             <priority>4</priority>
                             <description>0 = Online&#13;
 1 = Restoring&#13;
@@ -483,7 +483,7 @@ Windows service status returned values:&#13;
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url>https://support.microsoft.com/en-us/help/224071/troubleshooting-sql-server-backup-and-restore-operations</url>
-                            <status>0</status>
+                            <status>1</status>
                             <priority>3</priority>
                             <description>Microsoft SQL Server backup errors from Microsoft Windows Event Viewer.&#13;
 &#13;
@@ -511,7 +511,7 @@ Application (program) events. The Application log contains events logged by appl
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
-                            <status>0</status>
+                            <status>1</status>
                             <priority>3</priority>
                             <description>Microsoft SQL Server critical errors from Microsoft Windows Event Viewer.&#13;
 &#13;
@@ -529,7 +529,7 @@ Application (program) events. The Application log contains events logged by appl
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
-                            <status>0</status>
+                            <status>1</status>
                             <priority>4</priority>
                             <description>Microsoft SQL Server database integrity errors from Microsoft Windows Event Viewer.&#13;
 &#13;
@@ -547,7 +547,7 @@ Application (program) events. The Application log contains events logged by appl
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
-                            <status>0</status>
+                            <status>1</status>
                             <priority>4</priority>
                             <description>Microsoft SQL Server database integrity errors from Microsoft Windows Event Viewer.&#13;
 &#13;
@@ -565,7 +565,7 @@ Application (program) events. The Application log contains events logged by appl
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
-                            <status>0</status>
+                            <status>1</status>
                             <priority>3</priority>
                             <description>Msg 17883, 17884, 17887, or 17888 was logged in the Windows Application Event Log. These errors indicate that a hang condition was detected by SQL Server. This condition can result in application problems such as login timeouts, query timeouts, or execution failures. In some cases, this condition is isolated to a set of users based on a scheduler. In other cases the entire SQL Server might be affected. This error condition can often be the cause of a cluster failover.</description>
                             <type>0</type>
@@ -581,7 +581,7 @@ Application (program) events. The Application log contains events logged by appl
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
-                            <status>0</status>
+                            <status>1</status>
                             <priority>4</priority>
                             <description>Monitors Microsoft SQL Server service state.&#13;
 &#13;

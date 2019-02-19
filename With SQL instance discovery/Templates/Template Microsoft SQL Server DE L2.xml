@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2019-02-18T13:06:07Z</date>
+    <date>2019-02-19T19:05:00Z</date>
     <groups>
         <group>
             <name>Templates::Win_SQL</name>
@@ -33,7 +33,7 @@ mantas.tumenas@gmail.com</description>
                     <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>level.databases.mssql.discovery</key>
+                    <key>level2.databases.mssql.discovery</key>
                     <delay>4h</delay>
                     <status>0</status>
                     <allowed_hosts/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2019-02-18T13:14:11Z</date>
+    <date>2019-02-19T19:04:44Z</date>
     <groups>
         <group>
             <name>Templates::Win_SQL</name>
@@ -29,11 +29,464 @@ mantas.tumenas@gmail.com</description>
             <items/>
             <discovery_rules>
                 <discovery_rule>
+                    <name>SQL Server Databases Discovery</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>level3.databases.mssql.discovery</key>
+                    <delay>4h</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>2</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>365d</lifetime>
+                    <description>SQL Server database discovery with additional scripts lets discover Microsoft SQL Server databases.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Active Transactions</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Active Transactions&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>Transactions</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of active transactions for the database.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Bytes Flushed/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Bytes Flushed/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>F/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Total number of log bytes flushed.&#13;
+&#13;
+Useful for determining trends and utilization of the transaction log</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flushes/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flushes/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>F/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of log flushes.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flush Waits/sec</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flush Waits/sec&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>W/s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of commits per second waiting for the log flush.&#13;
+&#13;
+Effectively, the number of times per second that SQL Server must wait for pages to be written to the transaction log.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flush Wait Time</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flush Wait Time&quot;]</key>
+                            <delay>60s</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>ms</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Total wait time (in milliseconds) to flush the log.&#13;
+&#13;
+On an AlwaysOn secondary database, this value indicates the wait time for log records to be hardened to disk.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Growths</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Growths&quot;]</key>
+                            <delay>1h</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Total number of times the transaction log for the database has been expanded.&#13;
+&#13;
+Each time the transaction log grows, all user activity must halt until the log growth completes. Therefore, you want log growths to occur during predefined maintenance windows rather than during general working hours.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Shrinks</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Shrinks&quot;]</key>
+                            <delay>1h</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Total number of times the transaction log for the database has been shrunk.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Truncations</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Truncations&quot;]</key>
+                            <delay>1h</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of times the transaction log has been shrunk.&#13;
+&#13;
+Truncations should happen during log backups or, on databases in simple recovery mode, at checkpoint or the time period specified by recovery interval.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>SQL {#SQLINSTANCENAME} Database</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <master_item_prototype/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flush Waits/sec&quot;].last(0)}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flush Waits/sec {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description>Number of commits per second waiting for the log flush.&#13;
+&#13;
+Effectively, the number of times per second that SQL Server must wait for pages to be written to the transaction log.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flush Wait Time&quot;].last(0)}&gt;100</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flush Wait Time {ITEM.LASTVALUE}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description>Total wait time (in milliseconds) to flush the log. On an AlwaysOn secondary database, this value indicates the wait time for log records to be hardened to disk.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Growths&quot;].diff(0)}&gt;1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Growths &gt; 0</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description>Total number of times the transaction log for the database has been expanded.&#13;
+&#13;
+Each time the transaction log grows, all user activity must halt until the log growth completes. Therefore, you want log growths to occur during predefined maintenance windows rather than during general working hours.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Shrinks&quot;].change(86400)}=1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Was Shrinked In The Last 24 Hours</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2016</url>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description>Total number of times the transaction log for the database has been shrunk.</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                    <jmx_endpoint/>
+                </discovery_rule>
+                <discovery_rule>
                     <name>SQL Server Instances Discovery</name>
                     <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>level1.instances.mssql.discovery</key>
+                    <key>level3.instances.mssql.discovery</key>
                     <delay>4h</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -2129,459 +2582,6 @@ Threshold: high values can indicate thrash in tempdb and poorly coded queries.</
                             <status>0</status>
                             <priority>1</priority>
                             <description>Number of work tables created per second. For example, work tables could be used to store temporary results for query spool, LOB variables, XML variables, and cursors.</description>
-                            <type>0</type>
-                            <manual_close>0</manual_close>
-                            <dependencies/>
-                            <tags/>
-                        </trigger_prototype>
-                    </trigger_prototypes>
-                    <graph_prototypes/>
-                    <host_prototypes/>
-                    <jmx_endpoint/>
-                </discovery_rule>
-                <discovery_rule>
-                    <name>SQL Server Databases Discovery</name>
-                    <type>7</type>
-                    <snmp_community/>
-                    <snmp_oid/>
-                    <key>tier1.databases.mssql.discovery</key>
-                    <delay>4h</delay>
-                    <status>0</status>
-                    <allowed_hosts/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <filter>
-                        <evaltype>2</evaltype>
-                        <formula/>
-                        <conditions/>
-                    </filter>
-                    <lifetime>365d</lifetime>
-                    <description>SQL Server database discovery with additional scripts lets discover Microsoft SQL Server databases.</description>
-                    <item_prototypes>
-                        <item_prototype>
-                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Active Transactions</name>
-                            <type>7</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Active Transactions&quot;]</key>
-                            <delay>60s</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units>Transactions</units>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>Number of active transactions for the database.</description>
-                            <inventory_link>0</inventory_link>
-                            <applications/>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing/>
-                            <jmx_endpoint/>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>SQL {#SQLINSTANCENAME} Database</name>
-                                </application_prototype>
-                            </application_prototypes>
-                            <master_item_prototype/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Bytes Flushed/sec</name>
-                            <type>7</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Bytes Flushed/sec&quot;]</key>
-                            <delay>60s</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units>F/s</units>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>Total number of log bytes flushed.&#13;
-&#13;
-Useful for determining trends and utilization of the transaction log</description>
-                            <inventory_link>0</inventory_link>
-                            <applications/>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing/>
-                            <jmx_endpoint/>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>SQL {#SQLINSTANCENAME} Database</name>
-                                </application_prototype>
-                            </application_prototypes>
-                            <master_item_prototype/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flushes/sec</name>
-                            <type>7</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flushes/sec&quot;]</key>
-                            <delay>60s</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units>F/s</units>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>Number of log flushes.</description>
-                            <inventory_link>0</inventory_link>
-                            <applications/>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing/>
-                            <jmx_endpoint/>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>SQL {#SQLINSTANCENAME} Database</name>
-                                </application_prototype>
-                            </application_prototypes>
-                            <master_item_prototype/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flush Waits/sec</name>
-                            <type>7</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flush Waits/sec&quot;]</key>
-                            <delay>60s</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units>W/s</units>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>Number of commits per second waiting for the log flush.&#13;
-&#13;
-Effectively, the number of times per second that SQL Server must wait for pages to be written to the transaction log.</description>
-                            <inventory_link>0</inventory_link>
-                            <applications/>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing/>
-                            <jmx_endpoint/>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>SQL {#SQLINSTANCENAME} Database</name>
-                                </application_prototype>
-                            </application_prototypes>
-                            <master_item_prototype/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flush Wait Time</name>
-                            <type>7</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flush Wait Time&quot;]</key>
-                            <delay>60s</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units>ms</units>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>Total wait time (in milliseconds) to flush the log.&#13;
-&#13;
-On an AlwaysOn secondary database, this value indicates the wait time for log records to be hardened to disk.</description>
-                            <inventory_link>0</inventory_link>
-                            <applications/>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing/>
-                            <jmx_endpoint/>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>SQL {#SQLINSTANCENAME} Database</name>
-                                </application_prototype>
-                            </application_prototypes>
-                            <master_item_prototype/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Growths</name>
-                            <type>7</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Growths&quot;]</key>
-                            <delay>1h</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>Total number of times the transaction log for the database has been expanded.&#13;
-&#13;
-Each time the transaction log grows, all user activity must halt until the log growth completes. Therefore, you want log growths to occur during predefined maintenance windows rather than during general working hours.</description>
-                            <inventory_link>0</inventory_link>
-                            <applications/>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing/>
-                            <jmx_endpoint/>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>SQL {#SQLINSTANCENAME} Database</name>
-                                </application_prototype>
-                            </application_prototypes>
-                            <master_item_prototype/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Shrinks</name>
-                            <type>7</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Shrinks&quot;]</key>
-                            <delay>1h</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>Total number of times the transaction log for the database has been shrunk.</description>
-                            <inventory_link>0</inventory_link>
-                            <applications/>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing/>
-                            <jmx_endpoint/>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>SQL {#SQLINSTANCENAME} Database</name>
-                                </application_prototype>
-                            </application_prototypes>
-                            <master_item_prototype/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Truncations</name>
-                            <type>7</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Truncations&quot;]</key>
-                            <delay>1h</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>Number of times the transaction log has been shrunk.&#13;
-&#13;
-Truncations should happen during log backups or, on databases in simple recovery mode, at checkpoint or the time period specified by recovery interval.</description>
-                            <inventory_link>0</inventory_link>
-                            <applications/>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing/>
-                            <jmx_endpoint/>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>SQL {#SQLINSTANCENAME} Database</name>
-                                </application_prototype>
-                            </application_prototypes>
-                            <master_item_prototype/>
-                        </item_prototype>
-                    </item_prototypes>
-                    <trigger_prototypes>
-                        <trigger_prototype>
-                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flush Waits/sec&quot;].last(0)}&gt;0</expression>
-                            <recovery_mode>0</recovery_mode>
-                            <recovery_expression/>
-                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flush Waits/sec {ITEM.LASTVALUE}</name>
-                            <correlation_mode>0</correlation_mode>
-                            <correlation_tag/>
-                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2016</url>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description>Number of commits per second waiting for the log flush.&#13;
-&#13;
-Effectively, the number of times per second that SQL Server must wait for pages to be written to the transaction log.</description>
-                            <type>0</type>
-                            <manual_close>0</manual_close>
-                            <dependencies/>
-                            <tags/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Flush Wait Time&quot;].last(0)}&gt;100</expression>
-                            <recovery_mode>0</recovery_mode>
-                            <recovery_expression/>
-                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Flush Wait Time {ITEM.LASTVALUE}</name>
-                            <correlation_mode>0</correlation_mode>
-                            <correlation_tag/>
-                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2016</url>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description>Total wait time (in milliseconds) to flush the log. On an AlwaysOn secondary database, this value indicates the wait time for log records to be hardened to disk.</description>
-                            <type>0</type>
-                            <manual_close>0</manual_close>
-                            <dependencies/>
-                            <tags/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Growths&quot;].diff(0)}&gt;1</expression>
-                            <recovery_mode>0</recovery_mode>
-                            <recovery_expression/>
-                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Growths &gt; 0</name>
-                            <correlation_mode>0</correlation_mode>
-                            <correlation_tag/>
-                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2016</url>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description>Total number of times the transaction log for the database has been expanded.&#13;
-&#13;
-Each time the transaction log grows, all user activity must halt until the log growth completes. Therefore, you want log growths to occur during predefined maintenance windows rather than during general working hours.</description>
-                            <type>0</type>
-                            <manual_close>0</manual_close>
-                            <dependencies/>
-                            <tags/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template Microsoft SQL Server DE L3:perf_counter[&quot;\{#SQLINSTANCE}:Databases({#DBNAME})\Log Shrinks&quot;].change(86400)}=1</expression>
-                            <recovery_mode>0</recovery_mode>
-                            <recovery_expression/>
-                            <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Log Was Shrinked In The Last 24 Hours</name>
-                            <correlation_mode>0</correlation_mode>
-                            <correlation_tag/>
-                            <url>https://docs.microsoft.com/en-us/sql/2014/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2016</url>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description>Total number of times the transaction log for the database has been shrunk.</description>
                             <type>0</type>
                             <manual_close>0</manual_close>
                             <dependencies/>

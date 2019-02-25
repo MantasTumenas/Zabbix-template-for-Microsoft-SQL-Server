@@ -1,10 +1,11 @@
-# Query to get a MS SQL instance name.
+# Query to get instance name.
 
 $obj = [PSCustomObject] @{
     data = @((get-itemproperty 'HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server').InstalledInstances | % {
         [PSCustomObject] @{
             '{#SQLINSTANCENAME}' = $_
             '{#SQLINSTANCE}' = if($_ -eq 'MSSQLSERVER') { "SQLServer" } else { "MSSQL`$$_" }
+			'{#SQLINSTANCESERVICE}' = if($_ -eq 'MSSQLSERVER') { "MSSQLSERVER" } else { "MSSQL`$$_" }
         }
     }) 
 }

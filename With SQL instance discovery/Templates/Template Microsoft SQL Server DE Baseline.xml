@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2019-02-18T08:56:26Z</date>
+    <date>2019-02-25T11:56:44Z</date>
     <groups>
         <group>
             <name>Templates::Win_SQL</name>
@@ -3362,7 +3362,7 @@ Threshold: when blocking is high, check this counter to see if transactions are 
                             <type>7</type>
                             <snmp_community/>
                             <snmp_oid/>
-                            <key>service.info[{#SQLINSTANCENAME}]</key>
+                            <key>service.info[{#SQLINSTANCESERVICE}]</key>
                             <delay>30s</delay>
                             <history>90d</history>
                             <trends>365d</trends>
@@ -4113,7 +4113,7 @@ Threshold: a value less than 90% may indicate insufficient memory, since executi
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Microsoft SQL Server DE Baseline:service.info[{#SQLINSTANCENAME}].last(0)}&gt;0 and {Template Microsoft SQL Server DE Baseline:service.info[{#SQLINSTANCENAME}].last(0)}&lt;255</expression>
+                            <expression>{Template Microsoft SQL Server DE Baseline:service.info[{#SQLINSTANCESERVICE}].last(0)}&gt;0 and {Template Microsoft SQL Server DE Baseline:service.info[{#SQLINSTANCESERVICE}].last(0)}&lt;255</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>SQL Instance {#SQLINSTANCENAME} SQL Server: Service State {ITEM.LASTVALUE}</name>

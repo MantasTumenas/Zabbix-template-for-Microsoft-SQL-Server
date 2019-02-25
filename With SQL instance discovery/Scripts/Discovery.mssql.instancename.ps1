@@ -5,6 +5,7 @@ $obj = [PSCustomObject] @{
         [PSCustomObject] @{
             '{#SQLINSTANCENAME}' = $_
             '{#SQLINSTANCE}' = if($_ -eq 'MSSQLSERVER') { "SQLServer" } else { "MSSQL`$$_" }
+			'{#SQLINSTANCESERVICE}' = if($_ -eq 'MSSQLSERVER') { "MSSQLSERVER" } else { "MSSQL`$$_" }
         }
     }) 
 }

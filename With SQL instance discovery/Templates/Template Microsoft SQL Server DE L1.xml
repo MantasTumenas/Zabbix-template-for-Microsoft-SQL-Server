@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2019-02-19T19:05:11Z</date>
+    <date>2019-02-25T11:56:00Z</date>
     <groups>
         <group>
             <name>Templates::Win_SQL</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template Microsoft SQL Server DE L1</template>
-            <name>Template Microsoft SQL Server DE L1</name>
+            <template>Template Microsoft SQL Server DE L1 TEST</template>
+            <name>Template Microsoft SQL Server DE L1 TEST</name>
             <description>Zabbix template for Microsoft SQL Server.&#13;
 &#13;
 Tested on Microsoft SQL Server 2012, 2014 and 2016. It may work with earlier versions, but some items (with missing performance counters) may be unsupported.&#13;
@@ -122,8 +122,8 @@ mantas.tumenas@gmail.com</description>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template Microsoft SQL Server DE L1:level1.database.mssql.status[{#SQLINSTANCENAME},{#DBNAME}].last(0)}&gt;0 and {Template Microsoft SQL Server DE L1:level1.database.mssql.status[{#SQLINSTANCENAME},{#DBNAME}].last(0)}&lt;11 or {Template Microsoft SQL Server DE L1:level1.database.mssql.status[{#SQLINSTANCENAME},{#DBNAME}].last(0)}=25 or {Template Microsoft SQL Server DE L1:level1.database.mssql.status[{#SQLINSTANCENAME},{#DBNAME}].last(0)}=26 or&#13;
-{Template Microsoft SQL Server DE L1:level1.database.mssql.status[{#SQLINSTANCENAME},{#DBNAME}].last(0)}=35</expression>
+                            <expression>{Template Microsoft SQL Server DE L1 TEST:level1.database.mssql.status[{#SQLINSTANCENAME},{#DBNAME}].last(0)}&gt;0 and {Template Microsoft SQL Server DE L1 TEST:level1.database.mssql.status[{#SQLINSTANCENAME},{#DBNAME}].last(0)}&lt;11 or {Template Microsoft SQL Server DE L1 TEST:level1.database.mssql.status[{#SQLINSTANCENAME},{#DBNAME}].last(0)}=25 or {Template Microsoft SQL Server DE L1 TEST:level1.database.mssql.status[{#SQLINSTANCENAME},{#DBNAME}].last(0)}=26 or&#13;
+{Template Microsoft SQL Server DE L1 TEST:level1.database.mssql.status[{#SQLINSTANCENAME},{#DBNAME}].last(0)}=35</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>SQL Instance {#SQLINSTANCENAME} Database {#DBNAME}: Status {ITEM.LASTVALUE}</name>
@@ -423,7 +423,7 @@ Application (program) events. The Application log contains events logged by appl
                             <type>7</type>
                             <snmp_community/>
                             <snmp_oid/>
-                            <key>service.info[{#SQLINSTANCENAME}]</key>
+                            <key>service.info[{#SQLINSTANCESERVICE}]</key>
                             <delay>30s</delay>
                             <history>90d</history>
                             <trends>365d</trends>
@@ -476,7 +476,7 @@ Windows service status returned values:&#13;
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template Microsoft SQL Server DE L1:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(2516|2517|3041|3134|3266|3313|3314|3315|3316|3417|3431|3443|3456|5173|5176|9004|14420|17208|17557|18204|18210|18273|35268|35269)$,,skip].logeventid(2516|2517|3041|3134|3266|3313|3314|3315|3316|3417|3431|3443|3456|5173|5176|9004|14420|17208|17557|18204|18210|18273|35268|35269)}=1 and {Template Microsoft SQL Server DE L1:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(2516|2517|3041|3134|3266|3313|3314|3315|3316|3417|3431|3443|3456|5173|5176|9004|14420|17208|17557|18204|18210|18273|35268|35269)$,,skip].nodata(86400)}=0</expression>
+                            <expression>{Template Microsoft SQL Server DE L1 TEST:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(2516|2517|3041|3134|3266|3313|3314|3315|3316|3417|3431|3443|3456|5173|5176|9004|14420|17208|17557|18204|18210|18273|35268|35269)$,,skip].logeventid(2516|2517|3041|3134|3266|3313|3314|3315|3316|3417|3431|3443|3456|5173|5176|9004|14420|17208|17557|18204|18210|18273|35268|35269)}=1 and {Template Microsoft SQL Server DE L1 TEST:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(2516|2517|3041|3134|3266|3313|3314|3315|3316|3417|3431|3443|3456|5173|5176|9004|14420|17208|17557|18204|18210|18273|35268|35269)$,,skip].nodata(86400)}=0</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>SQL Instance {#SQLINSTANCENAME}: Database Backup Errors</name>
@@ -504,7 +504,7 @@ Application (program) events. The Application log contains events logged by appl
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Microsoft SQL Server DE L1:eventlog[Application,,&quot;Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,,,skip].last(,0)}&lt;&gt;0</expression>
+                            <expression>{Template Microsoft SQL Server DE L1 TEST:eventlog[Application,,&quot;Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,,,skip].last(,0)}&lt;&gt;0</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>SQL Instance {#SQLINSTANCENAME}: Database Engine Critical Errors</name>
@@ -522,7 +522,7 @@ Application (program) events. The Application log contains events logged by appl
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Microsoft SQL Server DE L1:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(211|427|602|603|606|608|610|806|823|824|825|829|832|855|856)$,,skip].logeventid(211|427|602|603|606|608|610|806|823|824|825|829|832|855|856)}=1 and {Template Microsoft SQL Server DE L1:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(211|427|602|603|606|608|610|806|823|824|825|829|832|855|856)$,,skip].nodata(345600)}=0</expression>
+                            <expression>{Template Microsoft SQL Server DE L1 TEST:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(211|427|602|603|606|608|610|806|823|824|825|829|832|855|856)$,,skip].logeventid(211|427|602|603|606|608|610|806|823|824|825|829|832|855|856)}=1 and {Template Microsoft SQL Server DE L1 TEST:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(211|427|602|603|606|608|610|806|823|824|825|829|832|855|856)$,,skip].nodata(345600)}=0</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>SQL Instance {#SQLINSTANCENAME}: Database Integrity Errors Part 1</name>
@@ -540,7 +540,7 @@ Application (program) events. The Application log contains events logged by appl
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Microsoft SQL Server DE L1:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(1509|1522|3301|3302|3624|3864|4134|5029|5180|8440|8443|8444|8461|8646|9003|9015|9100|9655|9657|17065|17066|17067)$,,skip].logeventid(1509|1522|3301|3302|3624|3864|4134|5029|5180|8440|8443|8444|8461|8646|9003|9015|9100|9655|9657|17065|17066|17067)}=1 and {Template Microsoft SQL Server DE L1:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(1509|1522|3301|3302|3624|3864|4134|5029|5180|8440|8443|8444|8461|8646|9003|9015|9100|9655|9657|17065|17066|17067)$,,skip].nodata(345600)}=0</expression>
+                            <expression>{Template Microsoft SQL Server DE L1 TEST:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(1509|1522|3301|3302|3624|3864|4134|5029|5180|8440|8443|8444|8461|8646|9003|9015|9100|9655|9657|17065|17066|17067)$,,skip].logeventid(1509|1522|3301|3302|3624|3864|4134|5029|5180|8440|8443|8444|8461|8646|9003|9015|9100|9655|9657|17065|17066|17067)}=1 and {Template Microsoft SQL Server DE L1 TEST:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(1509|1522|3301|3302|3624|3864|4134|5029|5180|8440|8443|8444|8461|8646|9003|9015|9100|9655|9657|17065|17066|17067)$,,skip].nodata(345600)}=0</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>SQL Instance {#SQLINSTANCENAME}: Database Integrity Errors Part 2</name>
@@ -558,7 +558,7 @@ Application (program) events. The Application log contains events logged by appl
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Microsoft SQL Server DE L1:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(17883|17884|17887|17888)$,,skip].logeventid(17883|17884|17887|17888)}=1</expression>
+                            <expression>{Template Microsoft SQL Server DE L1 TEST:eventlog[Application,,&quot;Warning|Error|Critical&quot;,&quot;{#SQLINSTANCENAME}&quot;,^(17883|17884|17887|17888)$,,skip].logeventid(17883|17884|17887|17888)}=1</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>SQL Instance {#SQLINSTANCENAME}: SQL Server hang condition</name>
@@ -574,7 +574,7 @@ Application (program) events. The Application log contains events logged by appl
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Microsoft SQL Server DE L1:service.info[{#SQLINSTANCENAME}].last(0)}&gt;0 and {Template Microsoft SQL Server DE L1:service.info[{#SQLINSTANCENAME}].last(0)}&lt;=255</expression>
+                            <expression>{Template Microsoft SQL Server DE L1 TEST:service.info[{#SQLINSTANCESERVICE}].last(0)}&gt;0 and {Template Microsoft SQL Server DE L1 TEST:service.info[{#SQLINSTANCESERVICE}].last(0)}&lt;=255</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>SQL Instance {#SQLINSTANCENAME} SQL Server: Service State {ITEM.LASTVALUE}</name>

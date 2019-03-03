@@ -4,7 +4,7 @@
     <date>2019-02-25T11:56:44Z</date>
     <groups>
         <group>
-            <name>Templates::Win_SQL</name>
+            <name>Templates</name>
         </group>
     </groups>
     <templates>
@@ -22,7 +22,7 @@ Mantas Tumenas.&#13;
 mantas.tumenas@gmail.com</description>
             <groups>
                 <group>
-                    <name>Templates::Win_SQL</name>
+                    <name>Templates</name>
                 </group>
             </groups>
             <applications/>

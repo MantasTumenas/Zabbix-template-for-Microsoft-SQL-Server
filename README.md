@@ -1,4 +1,4 @@
-# Zabbix-template-for-Microsoft-SQL-Server
+# Zabbix template for Microsoft SQL Server
 Features: MS SQL performance counters, MS SQL instance Low Level Discovery (in "With SQL instance discovery"), MS SQL database Low Level Discovery (in "With SQL instance discovery"), MS SQL agent job Low Level Discovery, MS SQL database mirroring monitoring (in "With SQL instance discovery"), MS SQL Always On monitoring (in "With SQL instance discovery"), MS SQL Log Shipping monitoring (in "With SQL instance discovery").
 
 Supported versions:
